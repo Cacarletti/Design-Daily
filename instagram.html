@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📷 Instagram — Design Daily</title>
+<style>
+  :root{--bg:#0f1115;--panel:#161922;--panel-2:#1c2030;--txt:#e8eaf0;--muted:#9aa0b4;--line:#262b3a;
+    --accent:#7c5cff;--accent-2:#ff5c8a;--radius:16px;--max:1100px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  header{position:sticky;top:0;z-index:50;background:rgba(15,17,21,.85);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);padding:14px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:38px;height:38px;border-radius:11px;
+    background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+    display:flex;align-items:center;justify-content:center;font-size:18px}
+  .brand h1{font-size:19px;font-weight:700;letter-spacing:-.3px}
+  .brand small{display:block;color:var(--muted);font-size:12px;font-weight:500}
+  nav.top{display:flex;gap:4px;flex-wrap:wrap}
+  nav.top a{padding:8px 13px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--muted);transition:.15s}
+  nav.top a:hover{background:var(--panel);color:var(--txt)} nav.top a.active{background:var(--panel-2);color:var(--txt)}
+  main{max-width:var(--max);margin:0 auto;padding:28px 24px}
+  .intro{color:var(--muted);font-size:14.5px;margin-bottom:8px;max-width:720px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:22px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    display:flex;flex-direction:column;transition:.18s}
+  .card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+  .cover{aspect-ratio:1/1;overflow:hidden;background:var(--panel-2)}
+  .cover img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s}
+  .card:hover .cover img{transform:scale(1.05)}
+  .cover.ph{display:flex;align-items:center;justify-content:center;font-size:42px;font-weight:800;color:#fff;
+    background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)}
+  .body{padding:13px 15px 16px;display:flex;flex-direction:column;gap:3px}
+  .body .nome{font-size:14.5px;font-weight:700;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .body .handle{font-size:12.5px;color:var(--muted)}
+  .body .go{margin-top:7px;font-size:12px;font-weight:700;color:var(--accent)}
+  footer{max-width:var(--max);margin:0 auto;padding:30px 24px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+  <header>
+    <div class="brand"><div class="logo">📷</div>
+      <div><h1>Instagram</h1><small>perfis pra seguir · Design Daily</small></div></div>
+    <nav class="top">
+      <a href="index.html">Notícias</a>
+      <a href="picks.html">⭐ Picks</a>
+      <a href="estudios.html">🏛 Estúdios</a>
+      <a href="instagram.html" class="active">📷 Instagram</a>
+      <a href="referencias_pinterest.html">📌 Pinterest</a>
+    </nav>
+  </header>
+  <main>
+    <p class="intro">Perfis de design, tipografia e inspiração que valem o follow. Clique em qualquer um
+    para abrir o perfil direto no Instagram.</p>
+    <div class="grid" id="grid"></div>
+  </main>
+  <footer>Diretório de perfis · fotos de perfil salvas localmente. Atualize com <code>instagram_capas.py</code>.</footer>
+
+  <script src="instagram_perfis.js"></script>
+  <script>
+  (function(){
+    const perfis=window.IGPERFIS||[];
+    function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+    document.getElementById('grid').innerHTML = perfis.map(p=>{
+      const inicial=(p.nome||p.handle||'?').trim()[0].toUpperCase();
+      const cover=p.capa
+        ? `<div class="cover"><img loading="lazy" src="${esc(p.capa)}" alt="${esc(p.nome)}"
+             onerror="this.parentNode.classList.add('ph');this.remove();this.parentNode.textContent='${esc(inicial)}'"></div>`
+        : `<div class="cover ph">${esc(inicial)}</div>`;
+      return `<a class="card" href="${esc(p.url)}" target="_blank" rel="noopener">${cover}
+        <div class="body"><span class="nome">${esc(p.nome)}</span>
+        <span class="handle">@${esc(p.handle)}</span><span class="go">Ver perfil →</span></div></a>`;
+    }).join('');
+  })();
+  </script>
+</body>
+</html>
