@@ -7,7 +7,6 @@
     { "nome": "Wolff Olins",    "url": "https://www.wolffolins.com/work",  "pattern": "^/work/[^/]+/?$",    "idioma": "en" },
     { "nome": "Mucho",          "url": "https://wearemucho.com/",          "pattern": "^/work/[^/]+/?$",    "idioma": "en" },
     { "nome": "&Walsh",         "url": "https://andwalsh.com/work",        "pattern": "^/work/all/[^/]+/?$","idioma": "en" },
-    { "nome": "Pentagram",      "url": "https://www.pentagram.com/",       "pattern": "^/work/[^/]+/?$",    "idioma": "en" },
     { "nome": "Mother Design",  "url": "https://www.motherdesign.com/",    "pattern": "^/work/[^/]+/?$",    "idioma": "en" }
   ]
 }

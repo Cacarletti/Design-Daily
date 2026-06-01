@@ -199,6 +199,48 @@
       "idioma": "en"
     },
     {
+      "nome": "Hypebeast",
+      "rss": "https://hypebeast.com/pt/feed",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "pt"
+    },
+    {
+      "nome": "Hypebeast Design",
+      "rss": "https://hypebeast.com/design/feed",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Hypebeast Footwear",
+      "rss": "https://hypebeast.com/footwear/feed",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Dazed",
+      "rss": "https://www.dazeddigital.com/rss",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "i-D",
+      "rss": "https://i-d.co/feed/",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Cool Hunting",
+      "rss": "https://coolhunting.com/feed/",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Trendland",
+      "rss": "https://trendland.com/feed/",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
       "nome": "Studio Feixen",
       "rss": "https://studiofeixen.ch/feed/",
       "categoria": "Estúdios",

@@ -30,6 +30,10 @@ CONFIG = "estudios.json"
 SNAPSHOT = "estudios_snapshot.json"
 PASTA_DADOS = "dados"
 TIMEOUT = 20
+# Trava anti-rotação: um dia real de publicação rende 1-2 projetos novos.
+# Se aparecerem mais que isto de uma vez, é quase certo conteúdo rotativo ou
+# redesenho do site — absorvemos no snapshot sem gerar cards (evita spam).
+LIMIAR_DRIFT = 3
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -117,6 +121,11 @@ def main():
             continue
 
         novos = atuais - conhecidos
+        if len(novos) > LIMIAR_DRIFT:
+            # provável rotação/redesenho — não é dia de publicação real
+            snapshot[nome] = sorted(conhecidos | atuais)
+            print(f"  ~~ {nome}: {len(novos)} mudanças (provável conteúdo rotativo) — absorvido sem gerar cards")
+            continue
         for url in sorted(novos):
             titulo, imagem = meta_og(url)
             novos_cards.append({
