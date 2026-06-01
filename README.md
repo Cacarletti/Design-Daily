@@ -11,6 +11,7 @@ de vários feeds RSS, agrupa por categoria e publica numa página com histórico
 | `fontes.json` | Configuração: feeds, categorias e regras |
 | `validar_feeds.py` | Testa quais feeds estão ativos e limpa os quebrados |
 | `coletar.py` | Coleta posts das últimas 24h → `dados/AAAA-MM-DD.json` |
+| `monitor_estudios.py` | Estúdios SEM RSS: detecta projetos novos por snapshot-diff (`estudios.json` + `estudios_snapshot.json`) |
 | `gerar_site.py` | Junta todos os dias num único `dados.js` |
 | `index.html` | A página (dashboard responsivo com navegação por data) |
 | `.github/workflows/diario.yml` | Automação diária no GitHub |

@@ -1,0 +1,13 @@
+{
+  "_comentario": "Estúdios SEM RSS monitorados por comparação de snapshot. 'pattern' é o formato da URL de um projeto. Quando um projeto novo aparece, vira um card na categoria Estúdios.",
+  "estudios": [
+    { "nome": "Order",         "url": "https://order.design/",            "pattern": "^/project/[^/]+/?$", "idioma": "en" },
+    { "nome": "Sagmeister Inc.","url": "https://sagmeister.com/",          "pattern": "^/work/[^/]+/?$",    "idioma": "en" },
+    { "nome": "Anagrama",       "url": "https://anagrama.com/",            "pattern": "^/project/[^/]+/?$", "idioma": "en" },
+    { "nome": "Wolff Olins",    "url": "https://www.wolffolins.com/work",  "pattern": "^/work/[^/]+/?$",    "idioma": "en" },
+    { "nome": "Mucho",          "url": "https://wearemucho.com/",          "pattern": "^/work/[^/]+/?$",    "idioma": "en" },
+    { "nome": "&Walsh",         "url": "https://andwalsh.com/work",        "pattern": "^/work/all/[^/]+/?$","idioma": "en" },
+    { "nome": "Pentagram",      "url": "https://www.pentagram.com/",       "pattern": "^/work/[^/]+/?$",    "idioma": "en" },
+    { "nome": "Mother Design",  "url": "https://www.motherdesign.com/",    "pattern": "^/work/[^/]+/?$",    "idioma": "en" }
+  ]
+}
