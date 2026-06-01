@@ -1,0 +1,135 @@
+{
+  "config": {
+    "horario_execucao": "18:00",
+    "timezone": "America/Sao_Paulo",
+    "janela_coleta_horas": 24,
+    "regra_traducao": "Itens com idioma diferente de 'en' e 'pt' devem ser traduzidos para português. Conteúdo em inglês permanece em inglês. Conteúdo em português permanece como está.",
+    "estrutura": "Arquivo histórico: cada dia gera uma seção/página própria, agrupada por data (mais recente no topo)."
+  },
+  "categorias": [
+    "Notícias & Inspiração",
+    "Tipografia",
+    "Embalagem",
+    "Produto & Industrial",
+    "Arquitetura",
+    "Branding & Identidade",
+    "Premiações",
+    "Brasil"
+  ],
+  "fontes": [
+    {
+      "nome": "It's Nice That",
+      "rss": "https://www.itsnicethat.com/articles.rss",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "AIGA Eye on Design",
+      "rss": "https://eyeondesign.aiga.org/feed/",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Creative Bloq",
+      "rss": "https://www.creativebloq.com/feed",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Designboom",
+      "rss": "https://www.designboom.com/feed/",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Design Milk",
+      "rss": "https://design-milk.com/feed/",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "swissmiss",
+      "rss": "https://www.swiss-miss.com/feed",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Typewolf",
+      "rss": "https://www.typewolf.com/feed",
+      "categoria": "Tipografia",
+      "idioma": "en"
+    },
+    {
+      "nome": "I Love Typography",
+      "rss": "https://ilovetypography.com/feed/",
+      "categoria": "Tipografia",
+      "idioma": "en"
+    },
+    {
+      "nome": "The Dieline",
+      "rss": "https://thedieline.com/feed",
+      "categoria": "Embalagem",
+      "idioma": "en"
+    },
+    {
+      "nome": "Packaging of the World",
+      "rss": "https://packagingoftheworld.com/feed",
+      "categoria": "Embalagem",
+      "idioma": "en"
+    },
+    {
+      "nome": "Yanko Design",
+      "rss": "https://www.yankodesign.com/feed/",
+      "categoria": "Produto & Industrial",
+      "idioma": "en"
+    },
+    {
+      "nome": "Core77",
+      "rss": "https://www.core77.com/feed",
+      "categoria": "Produto & Industrial",
+      "idioma": "en"
+    },
+    {
+      "nome": "Dezeen",
+      "rss": "https://www.dezeen.com/feed/",
+      "categoria": "Arquitetura",
+      "idioma": "en"
+    },
+    {
+      "nome": "ArchDaily",
+      "rss": "https://www.archdaily.com/rss/",
+      "categoria": "Arquitetura",
+      "idioma": "en"
+    },
+    {
+      "nome": "Awwwards Blog",
+      "rss": "https://www.awwwards.com/blog/feed/",
+      "categoria": "Premiações",
+      "idioma": "en"
+    },
+    {
+      "nome": "Communication Arts",
+      "rss": "https://www.commarts.com/feed",
+      "categoria": "Premiações",
+      "idioma": "en"
+    },
+    {
+      "nome": "B9",
+      "rss": "https://www.b9.com.br/feed/",
+      "categoria": "Brasil",
+      "idioma": "pt"
+    },
+    {
+      "nome": "Update or Die",
+      "rss": "https://www.updateordie.com/feed/",
+      "categoria": "Brasil",
+      "idioma": "pt"
+    },
+    {
+      "nome": "Plau",
+      "rss": "https://plau.co/feed/",
+      "categoria": "Brasil",
+      "idioma": "pt"
+    }
+  ]
+}
