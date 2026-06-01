@@ -1,6 +1,6 @@
 {
   "config": {
-    "horario_execucao": "18:00",
+    "horario_execucao": "22:00",
     "timezone": "America/Sao_Paulo",
     "janela_coleta_horas": 24,
     "regra_traducao": "Itens com idioma diferente de 'en' e 'pt' devem ser traduzidos para português. Conteúdo em inglês permanece em inglês. Conteúdo em português permanece como está.",

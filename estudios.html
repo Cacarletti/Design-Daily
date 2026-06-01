@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏛 Estúdios — Design Daily</title>
+<style>
+  :root{--bg:#0f1115;--panel:#161922;--panel-2:#1c2030;--txt:#e8eaf0;--muted:#9aa0b4;--line:#262b3a;
+    --accent:#7c5cff;--accent-2:#ff5c8a;--radius:14px;--max:1100px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  header{position:sticky;top:0;z-index:50;background:rgba(15,17,21,.85);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);padding:14px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
+  .brand h1{font-size:19px;font-weight:700;letter-spacing:-.3px}
+  .brand small{display:block;color:var(--muted);font-size:12px;font-weight:500}
+  nav.top{display:flex;gap:4px;flex-wrap:wrap}
+  nav.top a{padding:8px 13px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--muted);transition:.15s}
+  nav.top a:hover{background:var(--panel);color:var(--txt)} nav.top a.active{background:var(--panel-2);color:var(--txt)}
+  main{max-width:var(--max);margin:0 auto;padding:28px 24px}
+  .intro{color:var(--muted);font-size:14.5px;margin-bottom:6px;max-width:720px}
+  h2.sec{font-size:14px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin:32px 0 14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+  .link{display:flex;flex-direction:column;gap:3px;background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:15px 16px;transition:.15s}
+  .link:hover{transform:translateY(-3px);border-color:var(--accent);background:var(--panel-2)}
+  .link .nome{font-size:15px;font-weight:700}
+  .link .url{font-size:12.5px;color:var(--muted)}
+  .link .arrow{margin-top:6px;font-size:12px;font-weight:700;color:var(--accent)}
+  .note{margin-top:30px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 18px;color:var(--muted);font-size:13px} .note b{color:var(--txt)}
+  footer{max-width:var(--max);margin:0 auto;padding:30px 24px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+  <header>
+    <div class="brand"><div class="logo">🏛</div>
+      <div><h1>Estúdios</h1><small>acesso rápido · Design Daily</small></div></div>
+    <nav class="top">
+      <a href="index.html">Notícias</a>
+      <a href="picks.html">⭐ Picks</a>
+      <a href="estudios.html" class="active">🏛 Estúdios</a>
+      <a href="referencias_pinterest.html">📌 Pinterest</a>
+    </nav>
+  </header>
+  <main>
+    <p class="intro">Estúdios sem RSS aberto (sites em JavaScript ou portfólios sem feed). Não entram na coleta
+    automática — então ficam aqui como acesso rápido: clique e veja você mesmo o que subiram de novo.</p>
+
+    <h2 class="sec">Internacionais</h2>
+    <div class="grid" id="intl"></div>
+
+    <h2 class="sec">Brasil</h2>
+    <div class="grid" id="br"></div>
+
+    <div class="note">💡 <b>Os que já estão na coleta automática</b> não aparecem aqui: Studio Feixen, Tátil, Ana Couto,
+      Crama, Casa Redonda e Tecnopop entram via RSS na aba <b>Notícias</b> (categoria Estúdios); e Order, Sagmeister,
+      Anagrama, Wolff Olins, Mucho, &Walsh e Mother Design são monitorados — projetos novos viram card sozinhos.</div>
+  </main>
+  <footer>Diretório de estúdios · clique para visitar o site oficial.</footer>
+
+  <script>
+    const intl=[
+      ["Pentagram","https://www.pentagram.com"],
+      ["Porto Rocha","https://www.portorocha.com"],
+      ["COLLINS","https://www.wearecollins.com"],
+      ["DIA","https://dia.tv"],
+      ["Gretel","https://gretelny.com"],
+      ["Franklyn","https://franklyn.is"],
+      ["Bibliothèque","https://www.bibliothequedesign.com"],
+      ["Base Design","https://basedesign.com"],
+      ["Studio Dumbar / Dept","https://www.studiodumbar.com"],
+      ["Build","https://wearebuild.com"],
+      ["Hey Studio","https://heystudio.es"],
+      ["Bond","https://bond-agency.com"],
+      ["Manual","https://manualcreative.com"],
+      ["Instrument","https://www.instrument.com"],
+      ["High Tide","https://hightide.nyc"],
+      ["Smith & Diction","https://www.smithanddiction.com"]
+    ];
+    const br=[
+      ["Greco Design","https://grecodesign.com.br"],
+      ["Casa Rex","https://www.casarex.com"],
+      ["Oz Design","https://ozdesign.com.br"],
+      ["Chelles & Hayashi","https://chelleshayashi.com.br"],
+      ["Cauduro Martino","https://www.cauduromartino.com.br"]
+    ];
+    function dominio(u){return u.replace(/^https?:\/\//,'').replace(/\/$/,'');}
+    function render(arr,el){
+      document.getElementById(el).innerHTML=arr.map(([n,u])=>
+        `<a class="link" href="${u}" target="_blank" rel="noopener">
+           <span class="nome">${n}</span><span class="url">${dominio(u)}</span><span class="arrow">Visitar →</span>
+         </a>`).join('');
+    }
+    render(intl,'intl'); render(br,'br');
+  </script>
+</body>
+</html>

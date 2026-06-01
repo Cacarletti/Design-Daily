@@ -8,102 +8,93 @@
   :root{
     --bg:#0f1115; --panel:#161922; --panel-2:#1c2030;
     --txt:#e8eaf0; --muted:#9aa0b4; --line:#262b3a;
-    --accent:#7c5cff; --accent-2:#ff5c8a;
-    --card:#171b26; --radius:16px;
-    --max:1200px;
+    --accent:#7c5cff; --accent-2:#ff5c8a; --star:#ffce4d;
+    --card:#171b26; --radius:16px; --max:1200px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:var(--bg); color:var(--txt); line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.5;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
 
-  /* Cabecalho */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(15,17,21,.85); backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--line);
-    padding:18px 24px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;
-  }
-  .brand{display:flex; align-items:center; gap:12px}
-  .logo{
-    width:38px;height:38px;border-radius:11px;
-    background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;
-  }
+  header{position:sticky;top:0;z-index:50;background:rgba(15,17,21,.85);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);padding:14px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
   .brand h1{font-size:19px;font-weight:700;letter-spacing:-.3px}
   .brand small{display:block;color:var(--muted);font-size:12px;font-weight:500}
+  nav.top{display:flex;gap:4px;flex-wrap:wrap}
+  nav.top a{padding:8px 13px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--muted);transition:.15s}
+  nav.top a:hover{background:var(--panel);color:var(--txt)}
+  nav.top a.active{background:var(--panel-2);color:var(--txt)}
   .header-meta{margin-left:auto;color:var(--muted);font-size:13px;text-align:right}
-  #daySelect{
-    display:none; background:var(--panel-2); color:var(--txt);
-    border:1px solid var(--line); border-radius:10px; padding:9px 12px; font-size:14px;
-  }
+  #daySelect{display:none;background:var(--panel-2);color:var(--txt);border:1px solid var(--line);
+    border-radius:10px;padding:9px 12px;font-size:14px}
 
-  .shell{max-width:var(--max);margin:0 auto;display:flex;gap:28px;padding:28px 24px}
-
-  /* Menu lateral de datas */
+  .shell{max-width:var(--max);margin:0 auto;display:flex;gap:28px;padding:24px}
   aside{width:230px;flex-shrink:0}
   .aside-title{font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin:6px 8px 12px}
-  nav.days{position:sticky;top:96px;display:flex;flex-direction:column;gap:4px;max-height:calc(100vh - 120px);overflow:auto}
-  .day-btn{
-    display:flex;justify-content:space-between;align-items:center;gap:8px;
-    padding:11px 14px;border-radius:11px;color:var(--muted);
-    font-size:14px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:.15s;
-  }
+  nav.days{position:sticky;top:92px;display:flex;flex-direction:column;gap:4px;max-height:calc(100vh - 120px);overflow:auto}
+  .day-btn{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 14px;border-radius:11px;
+    color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:.15s}
   .day-btn:hover{background:var(--panel);color:var(--txt)}
   .day-btn.active{background:var(--panel-2);color:var(--txt);border-color:var(--line)}
-  .day-btn .count{font-size:11px;font-weight:700;background:var(--bg);color:var(--muted);
-    border:1px solid var(--line);border-radius:20px;padding:2px 8px}
-  .day-btn.active .count{color:var(--accent);border-color:var(--accent)}
+  .day-btn .count{font-size:11px;font-weight:700;background:var(--bg);color:var(--muted);border:1px solid var(--line);
+    border-radius:20px;padding:2px 8px}
 
-  /* Conteudo */
   main{flex:1;min-width:0}
-  .day-head{margin-bottom:24px}
+  .toolbar{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+  .seg{display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:3px}
+  .seg button{background:none;border:0;color:var(--muted);font-size:13.5px;font-weight:650;padding:8px 14px;
+    border-radius:8px;cursor:pointer;transition:.15s}
+  .seg button.on{background:var(--panel-2);color:var(--txt)}
+  .btn-export{margin-left:auto;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:0;
+    border-radius:10px;padding:10px 15px;font-size:13.5px;font-weight:700;cursor:pointer;transition:.15s}
+  .btn-export:hover{opacity:.9;transform:translateY(-1px)}
+  .btn-export:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+  .day-head{margin-bottom:22px}
   .day-head h2{font-size:26px;font-weight:800;letter-spacing:-.5px;text-transform:capitalize}
   .day-head p{color:var(--muted);font-size:14px;margin-top:4px}
 
   .cat-section{margin-bottom:38px}
   .cat-title{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-  .cat-title h3{font-size:15px;font-weight:700;letter-spacing:.2px}
+  .cat-title h3{font-size:15px;font-weight:700}
   .cat-title .bar{width:4px;height:18px;border-radius:4px;background:linear-gradient(var(--accent),var(--accent-2))}
   .cat-title .n{color:var(--muted);font-size:13px;font-weight:600}
 
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
-  .card{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    overflow:hidden;display:flex;flex-direction:column;transition:.18s;
-  }
+  .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;transition:.18s}
   .card:hover{transform:translateY(-4px);border-color:#3a4156;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+  .card.picked{border-color:var(--star)}
   .thumb{aspect-ratio:16/10;background:var(--panel-2);overflow:hidden;position:relative}
   .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s}
   .card:hover .thumb img{transform:scale(1.05)}
   .thumb.empty{display:flex;align-items:center;justify-content:center;color:var(--line);font-size:34px}
+  .star{position:absolute;top:10px;right:10px;z-index:3;width:34px;height:34px;border-radius:50%;border:0;
+    background:rgba(15,17,21,.72);backdrop-filter:blur(4px);color:#fff;font-size:16px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;transition:.15s;opacity:.85}
+  .star:hover{transform:scale(1.12);opacity:1}
+  .star.on{background:var(--star);color:#3a2e00}
   .card-body{padding:15px 16px 17px;display:flex;flex-direction:column;gap:9px;flex:1}
   .card-src{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);font-weight:600}
   .card-src .dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
-  .badge-pt{background:rgba(124,92,255,.16);color:#b6a4ff;border:1px solid rgba(124,92,255,.3);
-    border-radius:6px;padding:1px 6px;font-size:10px;font-weight:700;letter-spacing:.4px}
-  .card h4{font-size:15.5px;font-weight:700;line-height:1.35;letter-spacing:-.2px}
+  .badge-pt{background:rgba(124,92,255,.16);color:#b6a4ff;border:1px solid rgba(124,92,255,.3);border-radius:6px;
+    padding:1px 6px;font-size:10px;font-weight:700;letter-spacing:.4px}
+  .card h4{font-size:15.5px;font-weight:700;line-height:1.35}
   .card p{font-size:13px;color:var(--muted);flex:1}
   .card .go{font-size:12.5px;font-weight:700;color:var(--accent);margin-top:2px}
 
   .empty-state{text-align:center;color:var(--muted);padding:80px 20px}
   .empty-state h3{font-size:18px;color:var(--txt);margin-bottom:6px}
-
   footer{max-width:var(--max);margin:0 auto;padding:30px 24px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line)}
 
-  /* Responsivo */
   @media(max-width:820px){
-    .shell{flex-direction:column;padding:18px 16px;gap:18px}
-    aside{width:100%}
-    nav.days{display:none}
-    #daySelect{display:block;width:100%}
-    .aside-title{display:none}
-    .header-meta{display:none}
-    header{padding:14px 16px}
+    .shell{flex-direction:column;padding:16px;gap:16px}
+    aside{width:100%}nav.days{display:none}#daySelect{display:block;width:100%}
+    .aside-title{display:none}.header-meta{display:none}header{padding:12px 16px;gap:12px}
   }
 </style>
 </head>
@@ -111,11 +102,14 @@
   <header>
     <div class="brand">
       <div class="logo">D</div>
-      <div>
-        <h1>Design Daily</h1>
-        <small>Notícias de design, todo dia</small>
-      </div>
+      <div><h1>Design Daily</h1><small>Notícias de design, todo dia</small></div>
     </div>
+    <nav class="top">
+      <a href="index.html" class="active">Notícias</a>
+      <a href="picks.html">⭐ Picks</a>
+      <a href="estudios.html">🏛 Estúdios</a>
+      <a href="referencias_pinterest.html">📌 Pinterest</a>
+    </nav>
     <select id="daySelect" aria-label="Escolher dia"></select>
     <div class="header-meta" id="headerMeta"></div>
   </header>
@@ -127,108 +121,111 @@
     </aside>
     <main id="main"></main>
   </div>
-
   <footer id="footer"></footer>
 
   <script src="dados.js"></script>
   <script>
   (function(){
-    const H = window.HISTORICO || {categorias:[], dias:[]};
-    const main = document.getElementById('main');
-    const nav = document.getElementById('dayNav');
-    const select = document.getElementById('daySelect');
-    const headerMeta = document.getElementById('headerMeta');
-    const footer = document.getElementById('footer');
+    const H = window.HISTORICO || {categorias:[],dias:[]};
+    const main=document.getElementById('main'), nav=document.getElementById('dayNav');
+    const select=document.getElementById('daySelect'), headerMeta=document.getElementById('headerMeta'), footer=document.getElementById('footer');
+    const PICKS_KEY='designdaily:picks';
 
     if(!H.dias.length){
-      main.innerHTML = '<div class="empty-state"><h3>Ainda não há dados</h3>'+
-        '<p>Rode <code>coletar.py</code> e depois <code>gerar_site.py</code>.</p></div>';
+      main.innerHTML='<div class="empty-state"><h3>Ainda não há dados</h3><p>Rode <code>coletar.py</code> e depois <code>gerar_site.py</code>.</p></div>';
       return;
     }
 
-    // Formata "2026-06-01" -> "domingo, 1 de junho de 2026"
-    function dataLonga(iso){
-      const [a,m,d] = iso.split('-').map(Number);
-      const dt = new Date(a, m-1, d);
-      return dt.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-    }
-    function dataCurta(iso){
-      const [a,m,d] = iso.split('-').map(Number);
-      const dt = new Date(a, m-1, d);
-      return dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'short'});
-    }
-    function horaDe(iso){
-      try{ return new Date(iso).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}); }
-      catch(e){ return ''; }
-    }
-    function escapeHtml(s){
-      return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-    }
+    // ---- localStorage dos picks: { "2026-06-01": ["link1","link2"] } ----
+    function loadPicks(){ try{return JSON.parse(localStorage.getItem(PICKS_KEY))||{};}catch(e){return {};} }
+    function savePicks(o){ localStorage.setItem(PICKS_KEY, JSON.stringify(o)); }
+    function isPicked(date,link){ const p=loadPicks(); return (p[date]||[]).includes(link); }
+    function togglePick(date,link){ const p=loadPicks(); const set=new Set(p[date]||[]);
+      set.has(link)?set.delete(link):set.add(link); p[date]=[...set]; if(!p[date].length) delete p[date]; savePicks(p); }
+    function countPicks(date){ return (loadPicks()[date]||[]).length; }
 
-    let atual = 0; // indice do dia selecionado
+    function dataLonga(iso){const[a,m,d]=iso.split('-').map(Number);return new Date(a,m-1,d).toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}
+    function dataCurta(iso){const[a,m,d]=iso.split('-').map(Number);return new Date(a,m-1,d).toLocaleDateString('pt-BR',{day:'2-digit',month:'short'});}
+    function horaDe(iso){try{return new Date(iso).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});}catch(e){return '';}}
+    function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+    let atual=0;          // índice do dia
+    let modo='tudo';      // 'tudo' | 'picks'
 
     function render(){
-      const dia = H.dias[atual];
-      // Agrupa itens por categoria, na ordem do fontes.json
-      const porCat = {};
-      dia.itens.forEach(it=>{
-        (porCat[it.categoria] = porCat[it.categoria] || []).push(it);
-      });
+      const dia=H.dias[atual], data=dia.data;
+      let itens=dia.itens;
+      if(modo==='picks'){ const p=loadPicks()[data]||[]; itens=itens.filter(i=>p.includes(i.link)); }
 
-      let html = `<div class="day-head">
-          <h2>${dataLonga(dia.data)}</h2>
-          <p>${dia.total} ${dia.total===1?'post':'posts'} coletados${dia.gerado_em?' · atualizado às '+horaDe(dia.gerado_em):''}</p>
+      const porCat={}; itens.forEach(it=>{(porCat[it.categoria]=porCat[it.categoria]||[]).push(it);});
+      const nPicks=countPicks(data);
+
+      let html=`<div class="toolbar">
+          <div class="seg">
+            <button class="${modo==='tudo'?'on':''}" data-modo="tudo">Tudo (${dia.total})</button>
+            <button class="${modo==='picks'?'on':''}" data-modo="picks">⭐ Meus Picks (${nPicks})</button>
+          </div>
+          <button class="btn-export" id="btnExport" ${nPicks?'':'disabled'}>Exportar picks do dia ↓</button>
+        </div>
+        <div class="day-head"><h2>${dataLonga(data)}</h2>
+          <p>${modo==='picks'?nPicks+' pick(s) selecionado(s)':dia.total+' posts coletados'}${dia.gerado_em?' · atualizado às '+horaDe(dia.gerado_em):''}</p>
         </div>`;
 
-      H.categorias.forEach(cat=>{
-        const itens = porCat[cat];
-        if(!itens || !itens.length) return; // pula categoria vazia
-        html += `<section class="cat-section">
-          <div class="cat-title"><span class="bar"></span><h3>${escapeHtml(cat)}</h3><span class="n">${itens.length}</span></div>
-          <div class="grid">`;
-        itens.forEach(it=>{
-          const img = it.imagem
-            ? `<div class="thumb"><img loading="lazy" src="${escapeHtml(it.imagem)}" alt="" onerror="this.parentNode.classList.add('empty');this.remove();this.parentNode.textContent='◍'"></div>`
-            : `<div class="thumb empty">◍</div>`;
-          html += `<a class="card" href="${escapeHtml(it.link)}" target="_blank" rel="noopener">
-            ${img}
-            <div class="card-body">
-              <div class="card-src"><span class="dot"></span>${escapeHtml(it.fonte)}
-                ${it.traduzido?'<span class="badge-pt">PT</span>':''}</div>
-              <h4>${escapeHtml(it.titulo)}</h4>
-              ${it.descricao?`<p>${escapeHtml(it.descricao)}</p>`:''}
-              <span class="go">Ler matéria →</span>
-            </div>
-          </a>`;
-        });
-        html += `</div></section>`;
-      });
-      main.innerHTML = html;
-      window.scrollTo({top:0,behavior:'smooth'});
+      if(modo==='picks' && !nPicks){
+        html+=`<div class="empty-state"><h3>Nenhum pick neste dia ainda</h3><p>Volte em "Tudo" e clique na ⭐ dos cards que você curtir.</p></div>`;
+      }
 
-      // estados ativos
-      [...nav.children].forEach((el,i)=>el.classList.toggle('active', i===atual));
-      select.value = String(atual);
+      H.categorias.forEach(cat=>{
+        const arr=porCat[cat]; if(!arr||!arr.length) return;
+        html+=`<section class="cat-section"><div class="cat-title"><span class="bar"></span><h3>${esc(cat)}</h3><span class="n">${arr.length}</span></div><div class="grid">`;
+        arr.forEach(it=>{
+          const on=isPicked(data,it.link);
+          const img=it.imagem
+            ? `<div class="thumb"><img loading="lazy" src="${esc(it.imagem)}" alt="" onerror="this.parentNode.classList.add('empty');this.remove();this.parentNode.textContent='◍'"></div>`
+            : `<div class="thumb empty">◍</div>`;
+          html+=`<div class="card ${on?'picked':''}">
+            <button class="star ${on?'on':''}" data-link="${esc(it.link)}" title="Marcar como pick">★</button>
+            <a href="${esc(it.link)}" target="_blank" rel="noopener">
+              ${img}
+              <div class="card-body">
+                <div class="card-src"><span class="dot"></span>${esc(it.fonte)} ${it.traduzido?'<span class="badge-pt">PT</span>':''}</div>
+                <h4>${esc(it.titulo)}</h4>
+                ${it.descricao?`<p>${esc(it.descricao)}</p>`:''}
+                <span class="go">Ler matéria →</span>
+              </div>
+            </a></div>`;
+        });
+        html+=`</div></section>`;
+      });
+      main.innerHTML=html;
+      window.scrollTo({top:0,behavior:'smooth'});
+      [...nav.children].forEach((el,i)=>el.classList.toggle('active',i===atual));
+      select.value=String(atual);
+
+      // ligações
+      main.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{modo=b.dataset.modo;render();});
+      main.querySelectorAll('.star').forEach(s=>s.onclick=e=>{e.preventDefault();e.stopPropagation();togglePick(data,s.dataset.link);render();});
+      const exp=document.getElementById('btnExport'); if(exp) exp.onclick=()=>exportar(data);
     }
 
-    // Monta menu lateral + selector mobile
+    function exportar(data){
+      const dia=H.dias[atual]; const p=loadPicks()[data]||[];
+      const itens=dia.itens.filter(i=>p.includes(i.link));
+      const saida={data:data, gerado_em:new Date().toISOString(), total:itens.length, itens:itens};
+      const blob=new Blob([JSON.stringify(saida,null,2)],{type:'application/json'});
+      const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=data+'.json'; a.click();
+      alert('Arquivo "'+data+'.json" baixado!\n\nColoque-o na pasta picks/ do projeto e dê push.\n(Posso te passar o comando.)');
+    }
+
     H.dias.forEach((dia,i)=>{
-      const btn = document.createElement('div');
-      btn.className = 'day-btn';
-      btn.innerHTML = `<span>${dataCurta(dia.data)}</span><span class="count">${dia.total}</span>`;
-      btn.onclick = ()=>{ atual=i; render(); };
-      nav.appendChild(btn);
-
-      const opt = document.createElement('option');
-      opt.value = i; opt.textContent = `${dataCurta(dia.data)} (${dia.total})`;
-      select.appendChild(opt);
+      const btn=document.createElement('div'); btn.className='day-btn';
+      btn.innerHTML=`<span>${dataCurta(dia.data)}</span><span class="count">${dia.total}</span>`;
+      btn.onclick=()=>{atual=i;render();}; nav.appendChild(btn);
+      const opt=document.createElement('option'); opt.value=i; opt.textContent=`${dataCurta(dia.data)} (${dia.total})`; select.appendChild(opt);
     });
-    select.onchange = ()=>{ atual = Number(select.value); render(); };
-
-    headerMeta.innerHTML = `${H.dias.length} dia(s) no histórico` +
-      (H.atualizado_em?`<br>último: ${escapeHtml(H.atualizado_em.slice(0,10))}`:'');
-    footer.innerHTML = `Design Daily · agregador automático de RSS · gerado em ${new Date().toLocaleDateString('pt-BR')}`;
-
+    select.onchange=()=>{atual=Number(select.value);render();};
+    headerMeta.innerHTML=`${H.dias.length} dia(s) no histórico`+(H.atualizado_em?`<br>último: ${esc(H.atualizado_em.slice(0,10))}`:'');
+    footer.innerHTML=`Design Daily · agregador automático de RSS · ⭐ marque seus picks e exporte na aba do dia`;
     render();
   })();
   </script>

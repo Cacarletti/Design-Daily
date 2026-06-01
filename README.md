@@ -12,8 +12,12 @@ de vários feeds RSS, agrupa por categoria e publica numa página com histórico
 | `validar_feeds.py` | Testa quais feeds estão ativos e limpa os quebrados |
 | `coletar.py` | Coleta posts das últimas 24h → `dados/AAAA-MM-DD.json` |
 | `monitor_estudios.py` | Estúdios SEM RSS: detecta projetos novos por snapshot-diff (`estudios.json` + `estudios_snapshot.json`) |
-| `gerar_site.py` | Junta todos os dias num único `dados.js` |
-| `index.html` | A página (dashboard responsivo com navegação por data) |
+| `gerar_site.py` | Junta todos os dias (e os picks) num único `dados.js` |
+| `index.html` | Página principal (notícias por data) — ⭐ marque picks e exporte |
+| `picks.html` | Página compartilhável só com seus picks selecionados |
+| `estudios.html` | Diretório de acesso rápido aos estúdios sem RSS |
+| `referencias_pinterest.html` | Kit de descoberta do Pinterest |
+| `picks/` | Seus picks do dia (arquivos `AAAA-MM-DD.json` editáveis) |
 | `.github/workflows/diario.yml` | Automação diária no GitHub |
 
 O histórico nunca é apagado: cada dia é um arquivo em `dados/`, e a página

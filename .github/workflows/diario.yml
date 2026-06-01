@@ -3,9 +3,9 @@ name: Coleta diária de design
 # Quando rodar:
 on:
   schedule:
-    # GitHub usa horário UTC. 18:00 em Brasília (UTC-3) = 21:00 UTC.
+    # GitHub usa horário UTC. 22:00 em Brasília (UTC-3) = 01:00 UTC do dia seguinte.
     # (O horário pode atrasar alguns minutos em dias de pico do GitHub.)
-    - cron: "0 21 * * *"
+    - cron: "0 1 * * *"
   workflow_dispatch: {}   # permite rodar manualmente pelo botão "Run workflow"
 
 # Permissões que o robô precisa para salvar o histórico de volta no repositório.
