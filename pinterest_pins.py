@@ -17,19 +17,25 @@ import requests
 import feedparser
 
 SAIDA_JS = "pinterest_pins.js"
+LIMITE = 20  # máximo de pins por fonte (mantém a página leve)
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 }
 
-# (rótulo, URL do board público). O .rss é montado automaticamente.
-BOARDS = [
-    ("Meu board · graphic", "https://br.pinterest.com/cacarletti/graphic/"),
+# (rótulo, URL do feed RSS). Tipos de fonte:
+#   - Seu board:    https://br.pinterest.com/cacarletti/graphic.rss
+#   - Board público: https://www.pinterest.com/USUARIO/BOARD.rss
+#   - Todos os pins de um curador: https://www.pinterest.com/USUARIO/feed.rss
+FONTES = [
+    ("Meu board · graphic",  "https://br.pinterest.com/cacarletti/graphic.rss"),
+    ("Designspiration",      "https://www.pinterest.com/designspiration/feed.rss"),
+    ("FontShop",             "https://www.pinterest.com/fontshop/feed.rss"),
+    ("The Dieline",          "https://www.pinterest.com/thedieline/feed.rss"),
+    ("AIGA",                 "https://www.pinterest.com/aigadesign/feed.rss"),
+    ("Abduzeedo",            "https://www.pinterest.com/abduzeedo/feed.rss"),
+    ("Creative Market",      "https://www.pinterest.com/creativemarket/feed.rss"),
 ]
-
-
-def rss_de(board_url):
-    return board_url.rstrip("/") + ".rss"
 
 
 def limpar(t):
@@ -38,8 +44,8 @@ def limpar(t):
     return re.sub(r"\s+", " ", t).strip()
 
 
-def coletar(board_url):
-    r = requests.get(rss_de(board_url), headers=HEADERS, timeout=25)
+def coletar(rss_url):
+    r = requests.get(rss_url, headers=HEADERS, timeout=25)
     p = feedparser.parse(r.content)
     pins = []
     for e in p.entries:
@@ -52,15 +58,18 @@ def coletar(board_url):
             "link": e.get("link", ""),
             "imagem": img,
         })
+        if len(pins) >= LIMITE:
+            break
     return pins
 
 
 def main():
     feeds = []
-    for rotulo, url in BOARDS:
+    for rotulo, rss in FONTES:
         try:
-            pins = coletar(url)
-            feeds.append({"board": rotulo, "url": url, "pins": pins})
+            pins = coletar(rss)
+            link_board = rss.replace("feed.rss", "").rstrip("/")
+            feeds.append({"board": rotulo, "url": link_board, "pins": pins})
             print(f"  OK {rotulo}: {len(pins)} pins")
         except Exception as e:
             print(f"  XX {rotulo}: {type(e).__name__}")

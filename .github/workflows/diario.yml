@@ -33,6 +33,9 @@ jobs:
       - name: Monitorar estúdios sem RSS (novidades do dia)
         run: python monitor_estudios.py
 
+      - name: Atualizar pins do Pinterest (feed visual)
+        run: python pinterest_pins.py
+
       - name: Montar o site (dados.js)
         run: python gerar_site.py
 
@@ -40,7 +43,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dados dados.js estudios_snapshot.json
+          git add dados dados.js estudios_snapshot.json pinterest_pins.js
           # Só faz commit se algo mudou (evita erro em dia sem novidades).
           git diff --cached --quiet || git commit -m "Coleta diária: $(TZ=America/Sao_Paulo date +%Y-%m-%d)"
           git push
