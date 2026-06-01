@@ -14,7 +14,8 @@
     "Arquitetura",
     "Branding & Identidade",
     "Premiações",
-    "Brasil"
+    "Brasil",
+    "Estúdios"
   ],
   "fontes": [
     {
@@ -196,6 +197,42 @@
       "rss": "https://www.grafik.net/feed",
       "categoria": "Notícias & Inspiração",
       "idioma": "en"
+    },
+    {
+      "nome": "Studio Feixen",
+      "rss": "https://studiofeixen.ch/feed/",
+      "categoria": "Estúdios",
+      "idioma": "en"
+    },
+    {
+      "nome": "Tátil Design",
+      "rss": "https://tatil.com.br/feed/",
+      "categoria": "Estúdios",
+      "idioma": "pt"
+    },
+    {
+      "nome": "Ana Couto",
+      "rss": "https://anacouto.com.br/feed/",
+      "categoria": "Estúdios",
+      "idioma": "pt"
+    },
+    {
+      "nome": "Crama",
+      "rss": "https://crama.com.br/feed/",
+      "categoria": "Estúdios",
+      "idioma": "pt"
+    },
+    {
+      "nome": "Casa Redonda",
+      "rss": "http://casaredonda.com.br/feed/",
+      "categoria": "Estúdios",
+      "idioma": "pt"
+    },
+    {
+      "nome": "Tecnopop",
+      "rss": "http://www.tecnopop.com.br/feed/",
+      "categoria": "Estúdios",
+      "idioma": "pt"
     }
   ]
 }
