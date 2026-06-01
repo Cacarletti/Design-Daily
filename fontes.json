@@ -66,6 +66,12 @@
       "idioma": "en"
     },
     {
+      "nome": "Fonts In Use",
+      "rss": "https://fontsinuse.com/main.rss",
+      "categoria": "Tipografia",
+      "idioma": "en"
+    },
+    {
       "nome": "The Dieline",
       "rss": "https://thedieline.com/feed",
       "categoria": "Embalagem",
@@ -130,6 +136,72 @@
       "rss": "https://plau.co/feed/",
       "categoria": "Brasil",
       "idioma": "pt"
+    },
+    {
+      "nome": "BP&O",
+      "rss": "https://bpando.org/feed/",
+      "categoria": "Branding & Identidade",
+      "idioma": "en"
+    },
+    {
+      "nome": "Logo Design Love",
+      "rss": "https://www.logodesignlove.com/feed",
+      "categoria": "Branding & Identidade",
+      "idioma": "en"
+    },
+    {
+      "nome": "Identity Designed",
+      "rss": "https://identitydesigned.com/feed/",
+      "categoria": "Branding & Identidade",
+      "idioma": "en"
+    },
+    {
+      "nome": "Typographica",
+      "rss": "https://typographica.org/feed/",
+      "categoria": "Tipografia",
+      "idioma": "en"
+    },
+    {
+      "nome": "Abduzeedo",
+      "rss": "https://abduzeedo.com/rss.xml",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Colossal",
+      "rss": "https://www.thisiscolossal.com/feed/",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Booooooom",
+      "rss": "https://www.booooooom.com/feed/",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Fubiz",
+      "rss": "https://www.fubiz.net/en/feed/",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Print Magazine",
+      "rss": "https://www.printmag.com/feed/",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Creative Review",
+      "rss": "https://www.creativereview.co.uk/feed/",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
+    },
+    {
+      "nome": "Grafik",
+      "rss": "https://www.grafik.net/feed",
+      "categoria": "Notícias & Inspiração",
+      "idioma": "en"
     }
   ]
 }
