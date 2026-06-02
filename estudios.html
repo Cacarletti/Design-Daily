@@ -15,7 +15,7 @@
     border-bottom:1px solid var(--line);padding:14px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
+    display:flex;align-items:center;justify-content:center;font-size:18px}
   .brand h1{font-size:19px;font-weight:700;letter-spacing:-.3px}
   .brand small{display:block;color:var(--muted);font-size:12px;font-weight:500}
   nav.top{display:flex;gap:4px;flex-wrap:wrap}
@@ -24,13 +24,19 @@
   main{max-width:var(--max);margin:0 auto;padding:28px 24px}
   .intro{color:var(--muted);font-size:14.5px;margin-bottom:6px;max-width:720px}
   h2.sec{font-size:14px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin:32px 0 14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
-  .link{display:flex;flex-direction:column;gap:3px;background:var(--panel);border:1px solid var(--line);
-    border-radius:var(--radius);padding:15px 16px;transition:.15s}
-  .link:hover{transform:translateY(-3px);border-color:var(--accent);background:var(--panel-2)}
-  .link .nome{font-size:15px;font-weight:700}
-  .link .url{font-size:12.5px;color:var(--muted)}
-  .link .arrow{margin-top:6px;font-size:12px;font-weight:700;color:var(--accent)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    display:flex;flex-direction:column;transition:.15s}
+  .card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+  .cover{aspect-ratio:16/10;overflow:hidden;background:var(--panel-2)}
+  .cover img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s}
+  .card:hover .cover img{transform:scale(1.05)}
+  .cover.ph{display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:800;color:#fff;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+  .body{padding:13px 15px 16px;display:flex;flex-direction:column;gap:3px}
+  .body .nome{font-size:14.5px;font-weight:700;line-height:1.3}
+  .body .url{font-size:12.5px;color:var(--muted)}
+  .body .go{margin-top:7px;font-size:12px;font-weight:700;color:var(--accent)}
   .note{margin-top:30px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
     padding:16px 18px;color:var(--muted);font-size:13px} .note b{color:var(--txt)}
   footer{max-width:var(--max);margin:0 auto;padding:30px 24px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line)}
@@ -53,51 +59,38 @@
     automática — então ficam aqui como acesso rápido: clique e veja você mesmo o que subiram de novo.</p>
 
     <h2 class="sec">Internacionais</h2>
-    <div class="grid" id="intl"></div>
+    <div class="grid" id="g-intl"></div>
 
     <h2 class="sec">Brasil</h2>
-    <div class="grid" id="br"></div>
+    <div class="grid" id="g-br"></div>
 
     <div class="note">💡 <b>Os que já estão na coleta automática</b> não aparecem aqui: Studio Feixen, Tátil, Ana Couto,
       Crama, Casa Redonda e Tecnopop entram via RSS na aba <b>Notícias</b> (categoria Estúdios); e Order, Sagmeister,
       Anagrama, Wolff Olins, Mucho, &Walsh e Mother Design são monitorados — projetos novos viram card sozinhos.</div>
   </main>
-  <footer>Diretório de estúdios · clique para visitar o site oficial.</footer>
+  <footer>Diretório de estúdios · capas atualizáveis com <code>estudios_capas.py</code>.</footer>
 
+  <script src="estudios_capas.js"></script>
   <script>
-    const intl=[
-      ["Pentagram","https://www.pentagram.com"],
-      ["Porto Rocha","https://www.portorocha.com"],
-      ["COLLINS","https://www.wearecollins.com"],
-      ["DIA","https://dia.tv"],
-      ["Gretel","https://gretelny.com"],
-      ["Franklyn","https://franklyn.is"],
-      ["Bibliothèque","https://www.bibliothequedesign.com"],
-      ["Base Design","https://basedesign.com"],
-      ["Studio Dumbar / Dept","https://www.studiodumbar.com"],
-      ["Build","https://wearebuild.com"],
-      ["Hey Studio","https://heystudio.es"],
-      ["Bond","https://bond-agency.com"],
-      ["Manual","https://manualcreative.com"],
-      ["Instrument","https://www.instrument.com"],
-      ["High Tide","https://hightide.nyc"],
-      ["Smith & Diction","https://www.smithanddiction.com"]
-    ];
-    const br=[
-      ["Greco Design","https://grecodesign.com.br"],
-      ["Casa Rex","https://www.casarex.com"],
-      ["Oz Design","https://ozdesign.com.br"],
-      ["Chelles & Hayashi","https://chelleshayashi.com.br"],
-      ["Cauduro Martino","https://www.cauduromartino.com.br"]
-    ];
+  (function(){
+    const lista=window.ESTUDIOS||[];
+    function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
     function dominio(u){return u.replace(/^https?:\/\//,'').replace(/\/$/,'');}
-    function render(arr,el){
-      document.getElementById(el).innerHTML=arr.map(([n,u])=>
-        `<a class="link" href="${u}" target="_blank" rel="noopener">
-           <span class="nome">${n}</span><span class="url">${dominio(u)}</span><span class="arrow">Visitar →</span>
-         </a>`).join('');
+    function card(e){
+      const inicial=(e.nome||'?').trim()[0].toUpperCase();
+      const cover=e.capa
+        ? `<div class="cover"><img loading="lazy" src="${esc(e.capa)}" alt="${esc(e.nome)}"
+             onerror="this.parentNode.classList.add('ph');this.remove();this.parentNode.textContent='${esc(inicial)}'"></div>`
+        : `<div class="cover ph">${esc(inicial)}</div>`;
+      return `<a class="card" href="${esc(e.url)}" target="_blank" rel="noopener">${cover}
+        <div class="body"><span class="nome">${esc(e.nome)}</span>
+        <span class="url">${esc(dominio(e.url))}</span><span class="go">Visitar →</span></div></a>`;
     }
-    render(intl,'intl'); render(br,'br');
+    const intl=lista.filter(e=>e.grupo==='Internacionais').map(card).join('');
+    const br=lista.filter(e=>e.grupo==='Brasil').map(card).join('');
+    document.getElementById('g-intl').innerHTML=intl;
+    document.getElementById('g-br').innerHTML=br;
+  })();
   </script>
 </body>
 </html>
