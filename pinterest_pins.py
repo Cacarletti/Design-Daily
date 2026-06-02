@@ -35,6 +35,14 @@ FONTES = [
     ("AIGA",                 "https://www.pinterest.com/aigadesign/feed.rss"),
     ("Abduzeedo",            "https://www.pinterest.com/abduzeedo/feed.rss"),
     ("Creative Market",      "https://www.pinterest.com/creativemarket/feed.rss"),
+    ("It's Nice That",       "https://www.pinterest.com/itsnicethat/feed.rss"),
+    ("The Brand Identity",   "https://www.pinterest.com/thebrandidentity/feed.rss"),
+    ("Behance",              "https://www.pinterest.com/behance/feed.rss"),
+    ("Grain Edit",           "https://www.pinterest.com/grainedit/feed.rss"),
+    ("Print Magazine",       "https://www.pinterest.com/printmag/feed.rss"),
+    ("Creative Review",      "https://www.pinterest.com/creativereview/feed.rss"),
+    ("Swiss Miss",           "https://www.pinterest.com/swissmiss/feed.rss"),
+    ("AIGA Eye on Design",   "https://www.pinterest.com/aigaeyeondesign/feed.rss"),
 ]
 
 
