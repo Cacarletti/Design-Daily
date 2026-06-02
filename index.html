@@ -153,7 +153,7 @@
     let atual=0;          // índice do dia
     let modo='tudo';      // 'tudo' | 'picks'
 
-    function render(){
+    function render(scroll){
       const dia=H.dias[atual], data=dia.data;
       let itens=dia.itens;
       if(modo==='picks'){ const p=loadPicks()[data]||[]; itens=itens.filter(i=>p.includes(i.link)); }
@@ -199,14 +199,31 @@
         html+=`</div></section>`;
       });
       main.innerHTML=html;
-      window.scrollTo({top:0,behavior:'smooth'});
+      if(scroll) window.scrollTo({top:0,behavior:'smooth'});
       [...nav.children].forEach((el,i)=>el.classList.toggle('active',i===atual));
       select.value=String(atual);
 
       // ligações
-      main.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{modo=b.dataset.modo;render();});
-      main.querySelectorAll('.star').forEach(s=>s.onclick=e=>{e.preventDefault();e.stopPropagation();togglePick(data,s.dataset.link);render();});
+      main.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{modo=b.dataset.modo;render(true);});
+      main.querySelectorAll('.star').forEach(s=>s.onclick=e=>{
+        e.preventDefault(); e.stopPropagation();
+        togglePick(data, s.dataset.link);
+        const on=s.classList.toggle('on');
+        const card=s.closest('.card'); card.classList.toggle('picked', on);
+        atualizarToolbar(data);
+        if(modo==='picks' && !on){            // em "Meus Picks", desmarcar remove o card na hora
+          const grid=card.parentNode, section=grid.closest('.cat-section');
+          card.remove();
+          if(grid.children.length===0 && section) section.remove();
+        }
+      });
       const exp=document.getElementById('btnExport'); if(exp) exp.onclick=()=>exportar(data);
+    }
+
+    function atualizarToolbar(data){
+      const n=countPicks(data);
+      const pb=main.querySelector('.seg button[data-modo="picks"]'); if(pb) pb.textContent=`⭐ Meus Picks (${n})`;
+      const exp=document.getElementById('btnExport'); if(exp) exp.disabled=!n;
     }
 
     function exportar(data){
@@ -221,13 +238,13 @@
     H.dias.forEach((dia,i)=>{
       const btn=document.createElement('div'); btn.className='day-btn';
       btn.innerHTML=`<span>${dataCurta(dia.data)}</span><span class="count">${dia.total}</span>`;
-      btn.onclick=()=>{atual=i;render();}; nav.appendChild(btn);
+      btn.onclick=()=>{atual=i;render(true);}; nav.appendChild(btn);
       const opt=document.createElement('option'); opt.value=i; opt.textContent=`${dataCurta(dia.data)} (${dia.total})`; select.appendChild(opt);
     });
-    select.onchange=()=>{atual=Number(select.value);render();};
+    select.onchange=()=>{atual=Number(select.value);render(true);};
     headerMeta.innerHTML=`${H.dias.length} dia(s) no histórico`+(H.atualizado_em?`<br>último: ${esc(H.atualizado_em.slice(0,10))}`:'');
     footer.innerHTML=`Design Daily · agregador automático de RSS · ⭐ marque seus picks e exporte na aba do dia`;
-    render();
+    render(false);
   })();
   </script>
 </body>

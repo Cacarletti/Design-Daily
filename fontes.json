@@ -13,7 +13,6 @@
     "Produto & Industrial",
     "Arquitetura",
     "Branding & Identidade",
-    "Premiações",
     "Brasil",
     "Estúdios"
   ],
@@ -99,13 +98,13 @@
     {
       "nome": "Awwwards Blog",
       "rss": "https://www.awwwards.com/blog/feed/",
-      "categoria": "Premiações",
+      "categoria": "Notícias & Inspiração",
       "idioma": "en"
     },
     {
       "nome": "Communication Arts",
       "rss": "https://www.commarts.com/feed",
-      "categoria": "Premiações",
+      "categoria": "Notícias & Inspiração",
       "idioma": "en"
     },
     {
